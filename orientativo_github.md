@@ -55,13 +55,13 @@ Trabalhe normalmente nos arquivos. Quando terminar ou quiser salvar um progresso
 git add .
 
 # Salva o estado atual com uma mensagem clara e descritiva
-git commit -m "Adiciona dataset de FAQs do Kaggle"
+git commit -m "Descrição resumida do trabalho feito."
 ```
 
 ### Passo D: Envie seu trabalho para o GitHub (Push)
 Envie sua branch para o repositório remoto no GitHub:
 ```bash
-git push -u minha branch
+git push -u minha-branch
 ```
 *(Nota: O `-u` só é necessário na primeira vez que enviar essa branch. Depois basta usar `git push`).*
 
@@ -83,4 +83,4 @@ Se duas pessoas alterarem a mesma linha do mesmo arquivo, o Git acusará um **co
 - **Commits frequentes e atômicos:** Faça commits pequenos e lógicos. Evite fazer um único commit no fim do dia com dezenas de arquivos alterados.
 - **Mensagens claras:** Escreva mensagens de commit que expliquem *o que* foi feito (ex: "Corrige bug no fluxo de atendimento").
 - **Comunicação:** Use a aba "Issues" do GitHub ou o grupo do WhatsApp da equipe para avisar no que você está trabalhando, evitando que duas pessoas façam a mesma coisa.
-- **GitHub Desktop:** Se o terminal parecer muito complexo, sinta-se livre para usar a interface visual do [GitHub Desktop](https://desktop.github.com/). O fluxo lógico (Pull > Branch > Commit > Push > PR) é exatamente o mesmo!
+- **GitHub Desktop:** Se o terminal parecer muito complexo, sinta-se livre para usar a interface visual do [GitHub Desktop](https://desktop.github.com/). O fluxo lógico (`Git Pull` > `Git Branch` > `Git Commit` > `Git Push` > `Pull Request`) é exatamente o mesmo!
