@@ -61,7 +61,7 @@ git commit -m "Descrição resumida do trabalho feito."
 ### Passo D: Envie seu trabalho para o GitHub (Push)
 Envie sua branch para o repositório remoto no GitHub:
 ```bash
-git push -u minha-branch
+git push -u origin minha-branch
 ```
 *(Nota: O `-u` só é necessário na primeira vez que enviar essa branch. Depois basta usar `git push`).*
 
