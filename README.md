@@ -60,3 +60,4 @@ git push origin minha-branch
 Vá até a página do projeto no site do GitHub. Vai aparecer um botão verde pedindo para criar um **Pull Request**. Isso serve para pedir que seu código seja adicionado ao projeto principal (`main`). A equipe revisa e aprova!
 
 >**Dica:** Se achar os comandos de texto complicados, baixe o [GitHub Desktop](https://desktop.github.com/). É um programa visual que faz tudo isso através de botões!
+> Qualquer dúvida, comente no nosso grupo do WhatsApp.
