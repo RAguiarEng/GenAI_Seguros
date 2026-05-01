@@ -8,7 +8,7 @@ Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial 
 ## 📝 O que precisamos fazer
 - **Mapear e categorizar** as perguntas frequentes (FAQs) dos segurados.
 - **Estruturar fluxos** de atendimento conversacionais.
-- **Treinar o modelo de IA (LLM)** utilizando dados históricos, manuais, termos de apólices e bases do Kaggle.
+- **Treinar o modelo de IA (LLM)** utilizando dados históricos, manuais, termos de apólices ou bases do Kaggle.
 - Implementar **RAG (Retrieval-Augmented Generation)** para enriquecer o contexto das respostas.
 - *(Opcional)* Integrar com histórico de tickets ou sistemas de CRM.
 
@@ -39,8 +39,8 @@ Nunca edite a versão principal (`main`). Crie um "ramo" (branch) separado para 
 git checkout main
 git pull origin main
 
-# Crie seu ramo de trabalho (substitua o nome `minha-tarefa`)
-git checkout -b minha-tarefa
+# Crie seu ramo de trabalho (substitua o nome `minha-branch` para algo que identifique sua branch)
+git checkout -b minha-branch
 ```
 
 ### 3. Salvando seu trabalho (Commit)
@@ -53,10 +53,10 @@ git commit -m "Mensagem descrevendo o que eu fiz"
 ### 4. Enviando para a Nuvem (Push)
 Para que o resto da equipe veja o seu trabalho no GitHub:
 ```bash
-git push origin minha-tarefa
+git push origin minha-branch
 ```
 
 ### 5. Juntando tudo (Pull Request)
 Vá até a página do projeto no site do GitHub. Vai aparecer um botão verde pedindo para criar um **Pull Request**. Isso serve para pedir que seu código seja adicionado ao projeto principal (`main`). A equipe revisa e aprova!
 
->[!note]**Dica:** Se achar os comandos de texto complicados, baixe o [GitHub Desktop](https://desktop.github.com/). É um programa visual que faz tudo isso através de botões!
+>**Dica:** Se achar os comandos de texto complicados, baixe o [GitHub Desktop](https://desktop.github.com/). É um programa visual que faz tudo isso através de botões!
