@@ -5,6 +5,15 @@ Bem-vindo ao repositório do **ChatBot de Atendimento** da equipe! Este projeto 
 ## 🎯 Objetivo do Projeto
 Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial para automatizar o atendimento ao segurado. O foco é responder a perguntas frequentes e direcionar solicitações, proporcionando respostas rápidas e liberando a equipe humana para casos mais complexos.
 
+## 📂 Estrutura do Projeto
+Para garantir a rastreabilidade e a colaboração eficiente, o repositório está organizado da seguinte forma:
+
+*   **`data/`**: Armazena as bases de conhecimento (manuais em MD/PDF, CSV do Kaggle) utilizadas para o treinamento e contexto do RAG.
+*   **`docs/`**: Documentação técnica detalhada, incluindo o desenho da **Engenharia de Fluxo (Flow Engineering)**, diagramas de arquitetura e definições de protocolos como o MCP.
+*   **`reports/`**: Relatórios de progresso, métricas de qualidade (fidelidade e relevância) e logs de auditoria das inferências.
+*   **`src/`**: Código-fonte modularizado, separando a lógica de recuperação (Retriever), geração (Generator) e interface.
+*   **`.gitignore`**: Configurado para impedir a subida de chaves de API (`.env`) e arquivos temporários de dados.
+
 ## 📝 O que precisamos fazer
 - **Mapear e categorizar** as perguntas frequentes (FAQs) dos segurados.
 - **Estruturar fluxos** de atendimento conversacionais.
