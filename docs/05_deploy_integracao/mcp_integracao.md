@@ -11,7 +11,7 @@ Utilizamos o **Model Context Protocol (MCP)** como padrão aberto para conectar 
 ## 3. Servidores e Ferramentas (Roadmap)
 *   **Local Knowledge Server:** Permite ao agente navegar e ler arquivos na pasta `/data` (manuais e apólices).
 *   **Search Server:** Integração com APIs de busca (ex: Brave Search ou Serper) para consultar atualizações regulatórias em tempo real.
-*   **Database Server:** Conexão futura com o CRM da seguradora para personalização de dados do segurado.
+*   **Database Server:** Conexão futura com o CRM da seguradora para personalização de dados do segurado. (Opcional).
 
 ## 4. Segurança e Padronização
 O uso de MCP garante que o acesso aos arquivos locais seja feito de forma controlada e auditável, seguindo as melhores práticas de privacidade de dados.

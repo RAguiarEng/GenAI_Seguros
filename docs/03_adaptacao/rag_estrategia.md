@@ -2,7 +2,7 @@
 
 ## 1. Fontes de Conhecimento
 Para este projeto, a base de conhecimento é dividida por níveis de criticidade:
-*   **FAQs Seguros (Kaggle):** Utilizados para suporte a dúvidas gerais e linguagem natural.
+*   **FAQs Seguros:** Utilizados para suporte a dúvidas gerais e linguagem natural.
 *   **Manuais de Processos:** Instruções sobre fluxos operacionais (ex: como abrir um sinistro).
 *   **Termos e Condições de Apólices:** A **"Fonte da Verdade Jurídica"**. Contém as cláusulas, exclusões e limites de cobertura que regem o contrato.
 
