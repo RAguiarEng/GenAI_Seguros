@@ -8,6 +8,18 @@ Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial 
 ## 📂 Estrutura do Projeto
 Para garantir a rastreabilidade e a colaboração eficiente, o repositório está organizado da seguinte forma:
 
+```text
+GenAI_Seguros/
+├── data/           # Bases de conhecimento (MD, PDF, CSV)
+├── docs/           # Documentação técnica e diagramas
+├── reports/        # Relatórios de progresso e métricas
+├── src/            # Código-fonte do chatbot (Retriever, Generator)
+├── .gitignore      # Arquivos ignorados pelo Git
+├── LICENSE         # Licença do projeto
+├── README.md       # Documentação principal
+└── orientativo_github.md # Guia prático de colaboração
+```
+
 *   **`data/`**: Armazena as bases de conhecimento (manuais em MD/PDF, CSV do Kaggle) utilizadas para o treinamento e contexto do RAG.
 *   **`docs/`**: Documentação técnica detalhada, incluindo o desenho da **Engenharia de Fluxo (Flow Engineering)**, diagramas de arquitetura e definições de protocolos como o MCP.
 *   **`reports/`**: Relatórios de progresso, métricas de qualidade (fidelidade e relevância) e logs de auditoria das inferências.
