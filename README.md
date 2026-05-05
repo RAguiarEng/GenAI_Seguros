@@ -10,21 +10,23 @@ Para garantir a rastreabilidade e a colaboração eficiente, o repositório est�
 
 ```text
 GenAI_Seguros/
-├── data/           # Bases de conhecimento (MD, PDF, CSV)
-├── docs/           # Documentação técnica e diagramas
-├── reports/        # Relatórios de progresso e métricas
-├── src/            # Código-fonte do chatbot (Retriever, Generator)
+├── data/           # Pipeline de Dados (Camadas Raw, Processed e Vector)
+├── docs/           # Documentação seguindo o Ciclo de Vida da IA Generativa
+├── notebooks/      # Experimentação e prototipagem
+├── reports/        # Relatórios de progresso e métricas de qualidade
+├── src/            # Código-fonte modularizado (Ingestão, RAG, Bot, API)
 ├── .gitignore      # Arquivos ignorados pelo Git
 ├── LICENSE         # Licença do projeto
 ├── README.md       # Documentação principal
 └── orientativo_github.md # Guia prático de colaboração
 ```
 
-*   **`data/`**: Armazena as bases de conhecimento (manuais em MD/PDF, CSV do Kaggle) utilizadas para o treinamento e contexto do RAG.
-*   **`docs/`**: Documentação técnica detalhada, incluindo o desenho da **Engenharia de Fluxo (Flow Engineering)**, diagramas de arquitetura e definições de protocolos como o MCP.
-*   **`reports/`**: Relatórios de progresso, métricas de qualidade (fidelidade e relevância) e logs de auditoria das inferências.
-*   **`src/`**: Código-fonte modularizado, separando a lógica de recuperação (Retriever), geração (Generator) e interface.
-*   **`.gitignore`**: Configurado para impedir a subida de chaves de API (`.env`) e arquivos temporários de dados.
+*   **`data/`**: Organizado em `raw/` (dados brutos), `processed/` (dados limpos para RAG) e `vector_store/` (banco de dados vetorial).
+*   **`docs/`**: Estruturado conforme as fases: `01_escopo`, `02_selecao` (modelos), `03_adaptacao` (RAG/Prompting), `04_avaliacao` e `05_deploy_integracao`.
+*   **`notebooks/`**: Espaço para testes rápidos de prompts e análise exploratória de dados de atendimento.
+*   **`reports/`**: Logs de auditoria e métricas de desempenho do chatbot (fidelidade, relevância).
+*   **`src/`**: Módulos de `data_ingestion`, `rag` (retriever), `bot` (logic/prompts), `api` (interface Streamlit) e `evaluation`.
+*   **`.gitignore`**: Protege chaves de API e arquivos pesados de dados.
 
 ## 📝 O que precisamos fazer
 - **Mapear e categorizar** as perguntas frequentes (FAQs) dos segurados.
