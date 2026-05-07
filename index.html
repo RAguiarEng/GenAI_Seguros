@@ -4,88 +4,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+    <meta name="description" content="GenAI Seguros - Visão Geral do Projeto do ChatBot de Atendimento (InsurMinds)">
     <title>GenAI Seguros - Visão Geral do Projeto</title>
+    
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>GenAI Seguros</h1>
-            <p>Desafio 2 (InsurMinds) - ChatBot de Atendimento</p>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">GenAI Seguros</div>
+            <ul class="nav-links">
                 <li><a href="#objetivo">Objetivo</a></li>
-                <li><a href="#estrutura">Estrutura do Projeto</a></li>
+                <li><a href="#estrutura">Estrutura</a></li>
                 <li><a href="#fluxo-trabalho">Fluxo de Trabalho</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </nav>
 
+    <header class="hero">
+        <div class="container hero-content fade-in">
+            <h1>GenAI Seguros</h1>
+            <p>Desafio 2 (InsurMinds) - ChatBot de Atendimento</p>
+            <a href="#objetivo" class="btn btn-primary">Descobrir o Projeto</a>
+        </div>
+    </header>
+
     <main class="container">
-        <section id="objetivo">
+        <section id="objetivo" class="card fade-in">
             <h2>🎯 Objetivo do Projeto</h2>
             <p>Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial para automatizar o
                 atendimento ao segurado. O foco é responder a perguntas frequentes e direcionar solicitações,
-                proporcionando respostas rápidas e liberando a equipe humana para casos mais complexas.</p>
+                proporcionando respostas rápidas e liberando a equipe humana para casos mais complexos.</p>
         </section>
 
-        <section id="estrutura">
+        <section id="estrutura" class="card fade-in">
             <h2>📂 Estrutura do Projeto</h2>
             <p>Para garantir a rastreabilidade e a colaboração eficiente, o repositório está organizado da seguinte
                 forma:</p>
-            <pre><code>GenAI_Seguros/
-├── data/           # Pipeline de Dados (Camadas Raw, Processed e Vector)
-├── docs/           # Documentação seguindo o Ciclo de Vida da IA Generativa
+            <div class="code-block-wrapper">
+                <pre><code>GenAI_Seguros/
+├── data/           # Pipeline de Dados (Raw, Processed, Vector)
+├── docs/           # Documentação do Ciclo de Vida da IA Generativa
 ├── notebooks/      # Experimentação e prototipagem
-├── reports/        # Relatórios de progresso e métricas de qualidade
+├── reports/        # Relatórios de progresso e métricas
 ├── src/            # Código-fonte modularizado (Ingestão, RAG, Bot, API)
 ├── .gitignore      # Arquivos ignorados pelo Git
 ├── LICENSE         # Licença do projeto
 ├── README.md       # Documentação principal
-└── orientativo_github.md # Guia prático de colaboração
-</code></pre>
-            <p>Para mais detalhes, consulte o <a href="README.md">README.md</a>.</p>
+└── orientativo_github.md # Guia de colaboração</code></pre>
+            </div>
+            <p class="section-footer">Para mais detalhes, consulte o <a href="README.md" class="text-link">README.md</a>.</p>
         </section>
 
-        <section id="fluxo-trabalho">
+        <section id="fluxo-trabalho" class="card fade-in">
             <h2>🛠️ Fluxo de Trabalho e Boas Práticas</h2>
-            <h3>Guia Rápido do GitHub</h3>
-            <p>Para um guia detalhado sobre como colaborar no GitHub, incluindo clonagem, criação de branches, commits e
-                pull requests, consulte o arquivo <a href="orientativo_github.md">orientativo_github.md</a>.</p>
+            
+            <div class="grid-layout">
+                <div class="grid-item">
+                    <h3>Guia Rápido do GitHub</h3>
+                    <p>Guia detalhado sobre como colaborar no GitHub, incluindo clonagem e branches. <a href="orientativo_github.md">Saiba mais &rarr;</a></p>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Fluxo de Engenharia</h3>
+                    <p>O ChatBot opera sob a lógica de Flow Engineering utilizando estados de controle. <a href="fluxo_engenharia.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Fluxo de Engenharia (Flow Engineering)</h3>
-            <p>O ChatBot opera sob a lógica de Flow Engineering, utilizando estados para garantir que o atendimento ao
-                segurado seja preciso e seguro. Para mais informações, veja <a
-                    href="fluxo_engenharia.md">fluxo_engenharia.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Estratégia de RAG</h3>
+                    <p>Implementação de Retrieval-Augmented Generation e avaliação de qualidade. <a href="rag_estrategia.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Estratégia de RAG</h3>
-            <p>A implementação de Retrieval-Augmented Generation (RAG) é crucial para o projeto. Detalhes sobre fontes
-                de conhecimento, processamento de dados e avaliação de qualidade estão em <a
-                    href="rag_estrategia.md">rag_estrategia.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Arquitetura do Sistema</h3>
+                    <p>Visão geral, pilares de dados e stack tecnológica proposta. <a href="arquitetura.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Arquitetura do Sistema</h3>
-            <p>A visão geral, pilares e stack tecnológica proposta estão descritos em <a
-                    href="arquitetura.md">arquitetura.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Métricas de Avaliação</h3>
+                    <p>KPIs de performance, acurácia e guardrails de segurança estruturados. <a href="EVALUATION_METRICS.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Métricas de Avaliação</h3>
-            <p>Os KPIs de performance e guardrails de segurança são definidos em <a
-                    href="EVALUATION_METRICS.md">EVALUATION_METRICS.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Cenários de Teste</h3>
+                    <p>Golden Dataset e casos de teste críticos para validação jurídica. <a href="TEST_SCENARIOS.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Cenários de Teste (Golden Dataset)</h3>
-            <p>Os casos de teste críticos para validação estão em <a href="TEST_SCENARIOS.md">TEST_SCENARIOS.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Benchmarks de Modelos</h3>
+                    <p>Comparação de LLMs locais vs nuvem (Gemma, Gemini, DeepSeek, Llama). <a href="MODEL_BENCHMARKS.md">Saiba mais &rarr;</a></p>
+                </div>
 
-            <h3>Benchmarks de Modelos</h3>
-            <p>A comparação de LLMs locais e em nuvem está em <a href="MODEL_BENCHMARKS.md">MODEL_BENCHMARKS.md</a>.</p>
-
-            <h3>Sistema do Prompt</h3>
-            <p>A definição da persona, regras de operação e restrições de segurança para o prompt estão em <a
-                    href="SYSTEM_PROMPT.md">SYSTEM_PROMPT.md</a>.</p>
+                <div class="grid-item">
+                    <h3>Sistema do Prompt</h3>
+                    <p>Definição da persona, regras operacionais e restrições de segurança do prompt. <a href="SYSTEM_PROMPT.md">Saiba mais &rarr;</a></p>
+                </div>
+            </div>
         </section>
     </main>
 
