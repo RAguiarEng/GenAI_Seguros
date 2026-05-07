@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline';">
     <meta name="description" content="GenAI Seguros - Visão Geral do Projeto do ChatBot de Atendimento (InsurMinds)">
     <title>GenAI Seguros - Visão Geral do Projeto</title>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,8 +66,11 @@
 ├── README.md               # Documentação principal
 └── orientativo_github.md   # Guia de colaboração</code></pre>
             </div>
-            <p class="section-footer">Para mais detalhes, consulte o <a href="README.md"
-                    class="text-link">README.md</a>.</p>
+            <p class="section-footer">Para mais detalhes, consulte o <a
+                    href="https://github.com/RAguiarEng/GenAI_Seguros" class="text-link" target="_blank"
+                    rel="noopener noreferrer">README.md</a> <a href="https://github.com/RAguiarEng/GenAI_Seguros"
+                    target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="Ver no GitHub"><i
+                        class="fa-brands fa-github"></i></a></p>
         </section>
 
         <section id="fluxo-trabalho" class="card fade-in">
@@ -72,49 +80,58 @@
                 <div class="grid-item">
                     <h3>Guia Rápido do GitHub</h3>
                     <p>Guia detalhado sobre como colaborar no GitHub, incluindo clonagem e branches. <a
-                            href="orientativo_github.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/orientativo_github.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Fluxo de Engenharia</h3>
                     <p>O ChatBot opera sob a lógica de Flow Engineering utilizando estados de controle. <a
-                            href="fluxo_engenharia.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/docs/03_adaptacao/fluxo_engenharia.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Estratégia de RAG</h3>
                     <p>Implementação de Retrieval-Augmented Generation e avaliação de qualidade. <a
-                            href="rag_estrategia.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/docs/03_adaptacao/rag_estrategia.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Arquitetura do Sistema</h3>
-                    <p>Visão geral, pilares de dados e stack tecnológica proposta. <a href="arquitetura.md">Saiba mais
+                    <p>Visão geral, pilares de dados e stack tecnológica proposta. <a
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/docs/05_deploy_integracao/arquitetura.md">Saiba
+                            mais
                             &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Métricas de Avaliação</h3>
                     <p>KPIs de performance, acurácia e guardrails de segurança estruturados. <a
-                            href="EVALUATION_METRICS.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/reports/EVALUATION_METRICS.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Cenários de Teste</h3>
                     <p>Golden Dataset e casos de teste críticos para validação jurídica. <a
-                            href="TEST_SCENARIOS.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/reports/TEST_SCENARIOS.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Benchmarks de Modelos</h3>
                     <p>Comparação de LLMs locais vs nuvem (Gemma, Gemini, DeepSeek, Llama). <a
-                            href="MODEL_BENCHMARKS.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/reports/MODEL_BENCHMARKS.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Sistema do Prompt</h3>
                     <p>Definição da persona, regras operacionais e restrições de segurança do prompt. <a
-                            href="SYSTEM_PROMPT.md">Saiba mais &rarr;</a></p>
+                            href="https://github.com/RAguiarEng/GenAI_Seguros/blob/main/docs/SYSTEM_PROMPT.md">Saiba
+                            mais &rarr;</a></p>
                 </div>
             </div>
         </section>

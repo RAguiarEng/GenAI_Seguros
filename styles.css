@@ -252,6 +252,20 @@ pre {
     text-decoration: underline;
 }
 
+/* GitHub Icon Link Styling */
+.github-icon-link {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: var(--transition);
+}
+
+.github-icon-link:hover {
+    color: var(--primary-light);
+    transform: scale(1.1);
+}
+
 /* Footer */
 footer {
     background: var(--text-color);
