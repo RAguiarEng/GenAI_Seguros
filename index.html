@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
     <meta name="description" content="GenAI Seguros - Visão Geral do Projeto do ChatBot de Atendimento (InsurMinds)">
     <title>GenAI Seguros - Visão Geral do Projeto</title>
-    
+
     <!-- Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -50,61 +51,70 @@
                 forma:</p>
             <div class="code-block-wrapper">
                 <pre><code>GenAI_Seguros/
-├── data/           # Pipeline de Dados (Raw, Processed, Vector)
-├── docs/           # Documentação do Ciclo de Vida da IA Generativa
-├── notebooks/      # Experimentação e prototipagem
-├── reports/        # Relatórios de progresso e métricas
-├── src/            # Código-fonte modularizado (Ingestão, RAG, Bot, API)
-├── .gitignore      # Arquivos ignorados pelo Git
-├── LICENSE         # Licença do projeto
-├── README.md       # Documentação principal
-└── orientativo_github.md # Guia de colaboração</code></pre>
+├── data/                   # Pipeline de Dados (Raw, Processed, Vector)
+├── docs/                   # Documentação do Ciclo de Vida da IA Generativa
+├── notebooks/              # Experimentação e prototipagem
+├── reports/                # Relatórios de progresso e métricas
+├── src/                    # Código-fonte modularizado (Ingestão, RAG, Bot, API)
+├── .gitignore              # Arquivos ignorados pelo Git
+├── LICENSE                 # Licença do projeto
+├── README.md               # Documentação principal
+└── orientativo_github.md   # Guia de colaboração</code></pre>
             </div>
-            <p class="section-footer">Para mais detalhes, consulte o <a href="README.md" class="text-link">README.md</a>.</p>
+            <p class="section-footer">Para mais detalhes, consulte o <a href="README.md"
+                    class="text-link">README.md</a>.</p>
         </section>
 
         <section id="fluxo-trabalho" class="card fade-in">
             <h2>🛠️ Fluxo de Trabalho e Boas Práticas</h2>
-            
+
             <div class="grid-layout">
                 <div class="grid-item">
                     <h3>Guia Rápido do GitHub</h3>
-                    <p>Guia detalhado sobre como colaborar no GitHub, incluindo clonagem e branches. <a href="orientativo_github.md">Saiba mais &rarr;</a></p>
+                    <p>Guia detalhado sobre como colaborar no GitHub, incluindo clonagem e branches. <a
+                            href="orientativo_github.md">Saiba mais &rarr;</a></p>
                 </div>
-                
+
                 <div class="grid-item">
                     <h3>Fluxo de Engenharia</h3>
-                    <p>O ChatBot opera sob a lógica de Flow Engineering utilizando estados de controle. <a href="fluxo_engenharia.md">Saiba mais &rarr;</a></p>
+                    <p>O ChatBot opera sob a lógica de Flow Engineering utilizando estados de controle. <a
+                            href="fluxo_engenharia.md">Saiba mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Estratégia de RAG</h3>
-                    <p>Implementação de Retrieval-Augmented Generation e avaliação de qualidade. <a href="rag_estrategia.md">Saiba mais &rarr;</a></p>
+                    <p>Implementação de Retrieval-Augmented Generation e avaliação de qualidade. <a
+                            href="rag_estrategia.md">Saiba mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Arquitetura do Sistema</h3>
-                    <p>Visão geral, pilares de dados e stack tecnológica proposta. <a href="arquitetura.md">Saiba mais &rarr;</a></p>
+                    <p>Visão geral, pilares de dados e stack tecnológica proposta. <a href="arquitetura.md">Saiba mais
+                            &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Métricas de Avaliação</h3>
-                    <p>KPIs de performance, acurácia e guardrails de segurança estruturados. <a href="EVALUATION_METRICS.md">Saiba mais &rarr;</a></p>
+                    <p>KPIs de performance, acurácia e guardrails de segurança estruturados. <a
+                            href="EVALUATION_METRICS.md">Saiba mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Cenários de Teste</h3>
-                    <p>Golden Dataset e casos de teste críticos para validação jurídica. <a href="TEST_SCENARIOS.md">Saiba mais &rarr;</a></p>
+                    <p>Golden Dataset e casos de teste críticos para validação jurídica. <a
+                            href="TEST_SCENARIOS.md">Saiba mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Benchmarks de Modelos</h3>
-                    <p>Comparação de LLMs locais vs nuvem (Gemma, Gemini, DeepSeek, Llama). <a href="MODEL_BENCHMARKS.md">Saiba mais &rarr;</a></p>
+                    <p>Comparação de LLMs locais vs nuvem (Gemma, Gemini, DeepSeek, Llama). <a
+                            href="MODEL_BENCHMARKS.md">Saiba mais &rarr;</a></p>
                 </div>
 
                 <div class="grid-item">
                     <h3>Sistema do Prompt</h3>
-                    <p>Definição da persona, regras operacionais e restrições de segurança do prompt. <a href="SYSTEM_PROMPT.md">Saiba mais &rarr;</a></p>
+                    <p>Definição da persona, regras operacionais e restrições de segurança do prompt. <a
+                            href="SYSTEM_PROMPT.md">Saiba mais &rarr;</a></p>
                 </div>
             </div>
         </section>
