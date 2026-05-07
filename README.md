@@ -5,6 +5,8 @@ Bem-vindo ao repositório do **ChatBot de Atendimento** da equipe! Este projeto 
 ## 🎯 Objetivo do Projeto
 Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial para automatizar o atendimento ao segurado. O foco é responder a perguntas frequentes e direcionar solicitações, proporcionando respostas rápidas e liberando a equipe humana para casos mais complexos.
 
+**Visite nossa página: [GenAI Seguros](https://raguiareng.github.io/GenAI_Seguros/).**
+
 ## 📂 Estrutura do Projeto
 Para garantir a rastreabilidade e a colaboração eficiente, o repositório está organizado da seguinte forma:
 
