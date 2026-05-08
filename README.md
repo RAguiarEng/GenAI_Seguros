@@ -5,28 +5,55 @@ Bem-vindo ao repositório do **ChatBot de Atendimento** da equipe! Este projeto 
 ## 🎯 Objetivo do Projeto
 Desenvolver um chatbot (assistente virtual) baseado em Inteligência Artificial para automatizar o atendimento ao segurado. O foco é responder a perguntas frequentes e direcionar solicitações, proporcionando respostas rápidas e liberando a equipe humana para casos mais complexos.
 
+**Visite nossa página: [GenAI Seguros](https://raguiareng.github.io/GenAI_Seguros/).**
+
 ## 📂 Estrutura do Projeto
 Para garantir a rastreabilidade e a colaboração eficiente, o repositório está organizado da seguinte forma:
 
 ```text
 GenAI_Seguros/
-├── data/           # Pipeline de Dados (Camadas Raw, Processed e Vector)
-├── docs/           # Documentação seguindo o Ciclo de Vida da IA Generativa
-├── notebooks/      # Experimentação e prototipagem
-├── reports/        # Relatórios de progresso e métricas de qualidade
-├── src/            # Código-fonte modularizado (Ingestão, RAG, Bot, API)
-├── .gitignore      # Arquivos ignorados pelo Git
-├── LICENSE         # Licença do projeto
-├── README.md       # Documentação principal
-└── orientativo_github.md # Guia prático de colaboração
+├── data/                       # Pipeline de Dados (Camadas Raw, Processed e Vector)
+│   ├── raw/                    # Dados brutos e originais (ex: PDFs de manuais, FAQs)
+│   ├── processed/              # Dados limpos e pré-processados para RAG
+│   └── vector_store/           # Banco de dados vetorial (embeddings)
+├── docs/                       # Documentação seguindo o Ciclo de Vida da IA Generativa
+│   ├── 01_escopo/              # Documentos de escopo e fontes de conhecimento iniciais
+│   ├── 02_selecao/             # Documentos relacionados à seleção de modelos e ferramentas
+│   ├── 03_adaptacao/           # Estratégias de RAG e engenharia de fluxo (ex: fluxo_engenharia.md, rag_estrategia.md)
+│   ├── 04_avaliacao/           # Métricas e planos de avaliação do chatbot
+│   └── 05_deploy_integracao/   # Arquitetura e planos de deploy/integração (ex: arquitetura.md, mcp_integracao.md)
+├── notebooks/                  # Experimentação, prototipagem e testes rápidos de prompts
+├── reports/                    # Relatórios de progresso, métricas de qualidade e logs de auditoria
+├── src/                        # Código-fonte modularizado
+│   ├── api/                    # Interface do chatbot (ex: Streamlit)
+│   ├── bot/                    # Lógica principal do chatbot e gestão de prompts
+│   ├── data_ingestion/         # Módulos para ingestão e pré-processamento de dados
+│   ├── evaluation/             # Módulos para avaliação de desempenho do chatbot
+│   └── rag/                    # Módulos para Retrieval-Augmented Generation (retriever)
+├── .gitignore                  # Arquivos ignorados pelo Git
+├── LICENSE                     # Licença do projeto
+├── README.md                   # Documentação principal do projeto
+└── orientativo_github.md       # Guia prático de colaboração e uso do GitHub
 ```
 
-*   **`data/`**: Organizado em `raw/` (dados brutos), `processed/` (dados limpos para RAG) e `vector_store/` (banco de dados vetorial).
-*   **`docs/`**: Estruturado conforme as fases: `01_escopo`, `02_selecao` (modelos), `03_adaptacao` (RAG/Prompting), `04_avaliacao` e `05_deploy_integracao`.
-*   **`notebooks/`**: Espaço para testes rápidos de prompts e análise exploratória de dados de atendimento.
-*   **`reports/`**: Logs de auditoria e métricas de desempenho do chatbot (fidelidade, relevância).
-*   **`src/`**: Módulos de `data_ingestion`, `rag` (retriever), `bot` (logic/prompts), `api` (interface Streamlit) e `evaluation`.
-*   **`.gitignore`**: Protege chaves de API e arquivos pesados de dados.
+*   **`data/`**: Contém os dados em diferentes estágios de processamento para o RAG.
+    *   `raw/`: Armazena os documentos originais, como PDFs de manuais e FAQs.
+    *   `processed/`: Guarda os dados após limpeza e formatação, prontos para vetorização.
+    *   `vector_store/`: Onde o banco de dados vetorial (ex: FAISS) é armazenado.
+*   **`docs/`**: Organizado por fases do ciclo de vida da IA Generativa.
+    *   `01_escopo/`: Define o escopo do projeto e as fontes de conhecimento iniciais.
+    *   `02_selecao/`: Detalha a escolha de modelos e ferramentas.
+    *   `03_adaptacao/`: Inclui documentos sobre estratégias de RAG e engenharia de fluxo.
+    *   `04_avaliacao/`: Contém planos e resultados de avaliação.
+    *   `05_deploy_integracao/`: Abriga a arquitetura do sistema e planos de deploy.
+*   **`notebooks/`**: Ambiente para experimentação, prototipagem e testes rápidos de prompts e modelos.
+*   **`reports/`**: Armazena relatórios de progresso, métricas de qualidade do chatbot (fidelidade, relevância) e logs de auditoria.
+*   **`src/`**: Contém o código-fonte modularizado do chatbot.
+    *   `api/`: Módulos para a interface do usuário (ex: Streamlit).
+    *   `bot/`: Lógica central do chatbot e gerenciamento de prompts.
+    *   `data_ingestion/`: Scripts para ingestão e pré-processamento de dados.
+    *   `evaluation/`: Ferramentas e scripts para avaliar o desempenho do chatbot.
+    *   `rag/`: Implementação do mecanismo de Retrieval-Augmented Generation.
 
 ## 📝 O que precisamos fazer
 - **Mapear e categorizar** as perguntas frequentes (FAQs) dos segurados.
