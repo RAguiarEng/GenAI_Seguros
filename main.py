@@ -5,36 +5,36 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def perguntar():
-    caminho_db = "db"
+def query():
+    db_path = "db"
     
     # Instancia o embedding usado na criação e aponta para a pasta do banco
-    funcao_embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    db = Chroma(persist_directory=caminho_db, embedding_function=funcao_embedding)
+    embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    db = Chroma(persist_directory=db_path, embedding_function=embedding_function)
     
-    pergunta = input("Escreva sua pergunta: ")
+    question = input("Escreva sua pergunta: ")
     
     # Busca por similaridade no banco Chroma
-    resultados = db.similarity_search_with_relevance_scores(pergunta, k=3)
+    resultados = db.similarity_search_with_relevance_scores(question, k=3)
     if not resultados or resultados[0][1] < 0.7:
         print("Não consegui encontrar informação relevante na base.")
         return
         
     # Junta os fragmentos encontrados para formar o contexto da IA
-    textos_resultados = [resultado[0].page_content for resultado in resultados]
-    base_conhecimento = "\n\n----\n\n".join(textos_resultados)
+    retrieved_texts = [resultado[0].page_content for resultado in resultados]
+    knowledge_base = "\n\n----\n\n".join(retrieved_texts)
     
     # Template de injeção de contexto (o cerne do RAG)
     prompt_template = ChatPromptTemplate.from_template(
-        "Responda à pergunta do usuário com base nas informações abaixo:\n\n{base_conhecimento}\n\nPergunta: {pergunta}"
+        "Responda à pergunta do usuário com base nas informações abaixo:\n\n{knowledge_base}\n\nPergunta: {question}"
     )
-    prompt = prompt_template.invoke({"pergunta": pergunta, "base_conhecimento": base_conhecimento})
+    prompt = prompt_template.invoke({"question": question, "knowledge_base": knowledge_base})
     
     # Envia o prompt processado para a LLM
-    modelo = ChatGoogleGenerativeAI(model="gemini-1.5-flash")    
-    texto_resposta = modelo.invoke(prompt).content
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")    
+    answer_text = model.invoke(prompt).content
     
-    print(f"\nResposta da IA: {texto_resposta}")
+    print(f"\nResposta da IA: {answer_text}")
 
 if __name__ == "__main__":
-    perguntar()
+    query()
