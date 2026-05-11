@@ -9,12 +9,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def create_db():
-    caminho_db = "db"
+    db_path = "db"
     
     # Carregar documentos da pasta /data
     print("Carregando PDFs da pasta /data...")
     loader = PyPDFDirectoryLoader("data")
-    documentos = loader.load()
+    docs = loader.load()
     
     # Dividir em chunks para otimizar o limite de tokens
     text_splitter = RecursiveCharacterTextSplitter(
@@ -22,16 +22,16 @@ def create_db():
         chunk_overlap=500,
         length_function=len
     )
-    chunks = text_splitter.split_documents(documentos)
+    chunks = text_splitter.split_documents(docs)
     
     # Limpar banco antigo se existir
-    if os.path.exists(caminho_db):
-        shutil.rmtree(caminho_db)
+    if os.path.exists(db_path):
+        shutil.rmtree(db_path)
         
     # Vetorizar os chunks e salvar localmente usando o Chroma
     print("Vetorizando dados...")
-    funcao_embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    db = Chroma.from_documents(chunks, funcao_embedding, persist_directory=caminho_db)
+    embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    db = Chroma.from_documents(chunks, embedding_function, persist_directory=db_path)
     
     print(f"Banco vetorizado criado com sucesso! Total de chunks: {len(chunks)}")
 
