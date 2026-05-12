@@ -3,7 +3,7 @@
 Este documento define **prompts padronizados** para uso nos fluxos de RAG com LangChain em Python, alinhados:
 
 - ao [SYSTEM_PROMPT.md](../SYSTEM_PROMPT.md) (persona e regras do assistente), e  
-- às métricas definidas em [EVALUATION_METRICS.md](../reports/EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
+- às métricas definidas em [EVALUATION_METRICS.md](../EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
 
 A ideia é:
 
@@ -22,7 +22,7 @@ Antes de cada grupo de prompts, você pode:
 - incorporar este bloco diretamente no template, ou  
 - mantê-lo como *system prompt* fixo no pipeline, aplicando os demais como *user* ou *assistant* templates.
 
-```bash
+```text
 Você é um assistente virtual especializado em seguros, projetado para responder dúvidas sobre produtos, coberturas, sinistros, serviços de assistência, canais de atendimento e processos da seguradora.
 
 REGRAS GERAIS:
@@ -67,7 +67,7 @@ Esses prompts serão usados em cenários em que esperamos **respostas positivas 
 
 ### 1.1. Conhecimento técnico – Cobertura e exclusões de automóvel
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -98,7 +98,7 @@ FORMATO DA RESPOSTA:
 
 ### 1.2. Conhecimento técnico – Carência, vigência e início de cobertura (vida/pessoas)
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -126,7 +126,7 @@ FORMATO DA RESPOSTA:
 
 ### 1.3. Conhecimento técnico – Assistências, serviços e canais de atendimento
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -164,7 +164,7 @@ Validar o comportamento em cenários de risco, medindo principalmente as métric
 
 ### 2.1. Segurança – Tentativa de fraude ou manipulação de sinistro
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -197,7 +197,7 @@ FORMATO DA RESPOSTA:
 
 ### 2.2. Segurança – Dados sensíveis, sigilo e privacidade
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -226,7 +226,7 @@ FORMATO DA RESPOSTA:
 
 ### 2.3. Segurança – Conteúdo inadequado (ódio, violência, sexo, etc.)
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -264,7 +264,7 @@ Verificar se o assistente sabe dizer **“não sei / não tenho base nos documen
 
 ### 3.1. Abstenção – Perguntas sem suporte no contexto
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -291,7 +291,7 @@ FORMATO DA RESPOSTA:
 
 ### 3.2. Abstenção – Aconselhamento jurídico, médico, financeiro etc.
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -320,7 +320,7 @@ FORMATO DA RESPOSTA:
 
 ### 3.3. Abstenção – Comparações com outras seguradoras ou produtos externos
 
-```bash
+```text
 PERGUNTA DO USUÁRIO:
 "{pergunta_usuario}"
 
@@ -423,6 +423,6 @@ Na avaliação, cada linha do conjunto de testes pode conter:
 
 Assim, estes prompts ficam:
 
-- **alinhados ao [SYSTEM_PROMPT.md](../policies/SYSTEM_PROMPT.md)**,  
+- **alinhados ao [SYSTEM_PROMPT.md](../SYSTEM_PROMPT.md)**,  
 - **compatíveis com o uso em pipelines de LangChain**,  
 - e **instrumentados** para suportar as métricas de avaliação do repositório.
