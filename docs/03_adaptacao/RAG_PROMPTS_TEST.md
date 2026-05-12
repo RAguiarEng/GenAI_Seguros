@@ -2,8 +2,8 @@
 
 Este documento define **prompts padronizados** para uso nos fluxos de RAG com LangChain em Python, alinhados:
 
-- ao [SYSTEM_PROMPT.md](../docs/SYSTEM_PROMPT.md) (persona e regras do assistente), e  
-- às métricas definidas em [EVALUATION_METRICS.md](../reports/EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
+- ao [SYSTEM_PROMPT.md](../../docs/SYSTEM_PROMPT.md) (persona e regras do assistente), e  
+- às métricas definidas em [EVALUATION_METRICS.md](../../reports/EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
 
 A ideia é:
 
