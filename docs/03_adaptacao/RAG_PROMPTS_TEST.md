@@ -2,8 +2,8 @@
 
 Este documento define **prompts padronizados** para uso nos fluxos de RAG com LangChain em Python, alinhados:
 
-- ao [SYSTEM_PROMPT.md](../SYSTEM_PROMPT.md) (persona e regras do assistente), e  
-- às métricas definidas em [EVALUATION_METRICS.md](../EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
+- ao [SYSTEM_PROMPT.md](../docs/SYSTEM_PROMPT.md) (persona e regras do assistente), e  
+- às métricas definidas em [EVALUATION_METRICS.md](../reports/EVALUATION_METRICS.md) (Relevância, Completude, Fidelidade, Abstenção, Segurança, Tom/Clareza).
 
 A ideia é:
 
@@ -61,7 +61,7 @@ Avaliar se o assistente:
 em perguntas de uso real do cliente sobre coberturas, carências, assistências, etc.  
 Esses prompts serão usados em cenários em que esperamos **respostas positivas e detalhadas**.
 
-> Observação: Estes prompts são compatíveis com as métricas Relevance, Completeness e Faithfulness/Fidelity descritas em [EVALUATION_METRICS.md](../reports/EVALUATION_METRICS.md).
+> Observação: Estes prompts são compatíveis com as métricas Relevance, Completeness e Faithfulness/Fidelity descritas em [EVALUATION_METRICS.md](./reports/EVALUATION_METRICS.md).
 
 ---
 
