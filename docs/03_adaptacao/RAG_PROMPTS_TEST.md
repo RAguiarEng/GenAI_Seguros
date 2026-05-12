@@ -61,7 +61,7 @@ Avaliar se o assistente:
 em perguntas de uso real do cliente sobre coberturas, carências, assistências, etc.  
 Esses prompts serão usados em cenários em que esperamos **respostas positivas e detalhadas**.
 
-> Observação: Estes prompts são compatíveis com as métricas Relevance, Completeness e Faithfulness/Fidelity descritas em [EVALUATION_METRICS.md](./reports/EVALUATION_METRICS.md).
+> Observação: Estes prompts são compatíveis com as métricas Relevance, Completeness e Faithfulness/Fidelity descritas em [EVALUATION_METRICS.md](../../reports/EVALUATION_METRICS.md).
 
 ---
 
@@ -419,10 +419,10 @@ Na avaliação, cada linha do conjunto de testes pode conter:
 - `prompt`: a pergunta do usuário,  
 - `context`: o contexto retornado pelo retriever,  
 - `expected_answer` (opcional): resposta ideal para cálculo de similaridade,  
-- campos de anotação humana para as métricas definidas em [EVALUATION_METRICS.md](../reports/EVALUATION_METRICS.md).
+- campos de anotação humana para as métricas definidas em [EVALUATION_METRICS.md](../../reports/EVALUATION_METRICS.md).
 
 Assim, estes prompts ficam:
 
-- **alinhados ao [SYSTEM_PROMPT.md](../SYSTEM_PROMPT.md)**,  
+- **alinhados ao [SYSTEM_PROMPT.md](../../docs/SYSTEM_PROMPT.md)**,  
 - **compatíveis com o uso em pipelines de LangChain**,  
 - e **instrumentados** para suportar as métricas de avaliação do repositório.
