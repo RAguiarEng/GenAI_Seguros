@@ -1,4 +1,4 @@
-# Prompts de RAG para Cenários de Teste (v2.0)
+# Prompts de RAG para Cenários de Teste
 
 Este documento define **prompts padronizados** para uso nos fluxos de RAG com LangChain em Python, alinhados:
 
