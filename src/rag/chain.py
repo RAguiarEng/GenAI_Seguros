@@ -3,7 +3,7 @@ import pathlib
 from typing import List, Dict
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from src.config import GOOGLE_API_KEY, LLM_MODEL
 
 SYSTEM_PROMPT = """
