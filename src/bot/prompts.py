@@ -18,12 +18,12 @@ SEMPRE:
 - Observe limites de ESCOPO e SEGURANÇA: se for inadequado ou fora de escopo, recuse ou se abstenha, explicando o motivo.
 
 CONTEXTO (trechos dos documentos da seguradora):
-{contexto}
+{docs}
 """
 
-USER_PROMPT_CONHECIMENTO = """
+USER_PROMPT_KNOWLEDGE = """
 PERGUNTA DO USUÁRIO:
-"{pergunta_usuario}"
+"{question}"
 
 TAREFA:
 Você deve analisar a situação descrita na pergunta do usuário, com foco em seguro de automóvel, e responder seguindo os critérios abaixo:

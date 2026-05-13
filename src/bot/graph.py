@@ -3,59 +3,68 @@ from src.bot.state import AgentState
 
 # Aqui usamos os nomes exatos que estão no arquivo nodes.py
 from src.bot.nodes import (
-    get_analise_node, 
-    node_pedir_contexto, 
-    node_info_nao_encontrada, 
-    decidir_fluxo_pos_analise
+    intent_routing_node,
+    get_knowledge_retrieval_node,
+    answer_check_node,
+    ask_context_node,
+    human_handoff_node,
+    route_after_intent,
+    route_after_check
 )
 
+# Compila o fluxo de conversação (Flow Engineering) 
 def compile_agent(retriever):
-    """
-    Compila o fluxo de conversação do LangGraph para o chatbot da GenAI Seguros.
-    """
-    # Inicializa o grafo com o estado do agente
     workflow = StateGraph(AgentState)
     
-    # Mapeamento dos nós do fluxo:
-    workflow.add_node("analise_duvida_seguro", get_analise_node(retriever))
-    workflow.add_node("pedir_contexto_seguro", node_pedir_contexto)
-    workflow.add_node("info_nao_encontrada", node_info_nao_encontrada)
+    # Adicionando os nodes (Atores do sistema)
+    workflow.add_node("intent_routing", intent_routing_node)
+    workflow.add_node("knowledge_retrieval", get_knowledge_retrieval_node(retriever))
+    workflow.add_node("answer_check", answer_check_node)
+    workflow.add_node("ask_context", ask_context_node)
+    workflow.add_node("human_handoff", human_handoff_node)
     
-    # Define onde a conversa começa
-    workflow.set_entry_point("analise_duvida_seguro")
+    # Ponto de Entrada
+    workflow.set_entry_point("intent_routing")
     
-    # Lógica de Roteamento Condicional
+    # Caminhos Condicionais (Intenção -> RAG ou Humano)
     workflow.add_conditional_edges(
-        "analise_duvida_seguro",
-        decidir_fluxo_pos_analise,
+        "intent_routing",
+        route_after_intent,
         {
-            "pedir_contexto": "pedir_contexto_seguro",
-            "info_nao_encontrada": "info_nao_encontrada",
-            "fim": END
+            "knowledge_retrieval": "knowledge_retrieval",
+            "human_handoff": "human_handoff"
         }
     )
     
-    # Definindo os pontos finais do fluxo
-    workflow.add_edge("pedir_contexto_seguro", END)
-    workflow.add_edge("info_nao_encontrada", END)
+    # O node de busca RAG sempre avança para a verificação de alucinação
+    workflow.add_edge("knowledge_retrieval", "answer_check")
     
-    # Compila a aplicação
+    # Caminhos Condicionais Pós-RAG (Confiança da Resposta vs. Ambiguidade)
+    workflow.add_conditional_edges(
+        "answer_check",
+        route_after_check,
+        {
+            "end": END,
+            "ask_context": "ask_context",
+            "human_handoff": "human_handoff"
+        }
+    )
+    
+    # Encerrando os nodes sem saída
+    workflow.add_edge("ask_context", END)
+    workflow.add_edge("human_handoff", END)
+    
     return workflow.compile()
 
-# --- CÓDIGO PARA GERAR O GRAFO ---
+# Visualização do fluxo (Grafo)
 if __name__ == "__main__":
-    print("Gerando visualização do fluxo...")
-    
-    # Compilamos com None apenas para visualização da estrutura
-    app_visualizacao = compile_agent(retriever=None)
+    print("Gerando visualização do fluxo do LangGraph...")
+    app_view = compile_agent(retriever=None)
     
     try:
-        # Tenta gerar a imagem PNG
-        imagem_png = app_visualizacao.get_graph().draw_mermaid_png()
+        png_image = app_view.get_graph().draw_mermaid_png()
         with open("docs/fluxo_genai_seguros.png", "wb") as f:
-            f.write(imagem_png)
-        print("✅ Sucesso! Imagem salva como 'docs/fluxo_genai_seguros.png'.")
+            f.write(png_image)
+        print("Sucesso! Imagem salva como 'docs/fluxo_genai_seguros.png'.")
     except Exception as e:
-        print(f"⚠️ Erro ao gerar PNG: {e}")
-        print("\nExibindo versão ASCII:\n")
-        print(app_visualizacao.get_graph().draw_ascii())
+        print(f"Erro ao gerar PNG: {e}")
