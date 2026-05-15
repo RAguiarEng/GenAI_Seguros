@@ -8,15 +8,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 
 # Importa as configurações ajustadas do config.py
-from src.config import GOOGLE_API_KEY, LLM_MODEL, LLM_PROVIDER
+from src.config import GOOGLE_API_KEY, LLM_MODEL, LLM_PROVIDER, OLLAMA_MODEL
 from src.bot.prompts import SYSTEM_PROMPT, USER_PROMPT_KNOWLEDGE
 
 # Função para obter a LLM configurada (Google Gemini ou Ollama local)
 def get_llm():
     if LLM_PROVIDER == "local":
-        print(f"Usando LLM local com modelo: {LLM_MODEL}")
+        print(f"Usando LLM local com modelo: {OLLAMA_MODEL}")
         return ChatOllama(
-            model=LLM_MODEL, 
+            model=OLLAMA_MODEL, 
             temperature=0.0)
 
     elif LLM_PROVIDER == "google":

@@ -19,9 +19,10 @@ VECTOR_STORE_DIR = BASE_DIR / "data" / "vector_store"
 # Modelos
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "models/gemini-embedding-001")
 LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.5-flash")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gemma4:latest")
 
 # Parâmetros RAG
-CHUNK_SIZE = 1500
-CHUNK_OVERLAP = 150
-SCORE_THRESHOLD = 0.4
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 200
+SCORE_THRESHOLD = 0.7
 TOP_K = 5

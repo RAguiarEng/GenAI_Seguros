@@ -3,9 +3,7 @@ from src.rag.chain import get_rag_chain, format_citations
 
 # Palavras-chave que indicam pedidos muito amplos ou genéricos
 AMBIGUOUS_KEYWORDS = [
-    "fale sobre", "resuma", "visão geral", "como está", "acionar", "o que é", 
-    "explique", "detalhes", "diga mais", "conte mais", "quais são", "quais as", 
-    "quais os", "quais informações", "quais dados"
+    "fale sobre", "resuma", "visão geral", "como está", "acionar"
 ]
 
 # Classifica a intenção da dúvida do cliente (Sinistro, FAQ, Financeiro).
@@ -112,8 +110,8 @@ def route_after_check(state: AgentState) -> str:
     question = state.get("question", "").lower()
     word_count = len(question.split())
     
-    # Validação rigorosa: Se tem menos de 4 palavras OU possui termos ambíguos
-    if word_count < 4 or any(keyword in question for keyword in AMBIGUOUS_KEYWORDS):
+    # Validação: Se tem menos de 3 palavras OU possui termos ambíguos
+    if word_count < 3 or any(keyword in question for keyword in AMBIGUOUS_KEYWORDS):
         return "ask_context"
     
     return "human_handoff"
