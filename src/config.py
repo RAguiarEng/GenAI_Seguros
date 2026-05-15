@@ -23,5 +23,5 @@ LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.5-flash")
 # Parâmetros RAG
 CHUNK_SIZE = 1500
 CHUNK_OVERLAP = 150
-SCORE_THRESHOLD = 0.4
+SCORE_THRESHOLD = 0.2
 TOP_K = 5

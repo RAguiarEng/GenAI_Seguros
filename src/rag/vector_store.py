@@ -58,7 +58,4 @@ def load_retriever(store_path):
         persist_directory=str(store_path)
     )
     
-    return vectorstore.as_retriever(
-        search_type="similarity_score_threshold",
-        search_kwargs={"score_threshold": SCORE_THRESHOLD, "k": TOP_K}
-    )
+    return vectorstore.as_retriever(search_kwargs={"k": TOP_K}, search_type="similarity")

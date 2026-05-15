@@ -55,12 +55,13 @@ GenAI_Seguros/
     *   `evaluation/`: Ferramentas e scripts para avaliar o desempenho do chatbot.
     *   `rag/`: Implementação do mecanismo de Retrieval-Augmented Generation.
 
-## 📝 O que precisamos fazer
-- **Mapear e categorizar** as perguntas frequentes (FAQs) dos segurados.
-- **Estruturar fluxos** de atendimento conversacionais.
-- **Treinar o modelo de IA (LLM)** utilizando dados históricos, manuais, termos de apólices ou bases do Kaggle.
-- Implementar **RAG (Retrieval-Augmented Generation)** para enriquecer o contexto das respostas.
-- *(Opcional)* Integrar com histórico de tickets ou sistemas de CRM.
+## 🚀 O que já implementamos (Versão Atual)
+- **Pipeline de Dados:** Ingestão de PDFs (Manuais de Seguros, FAQs) com `PyMuPDFLoader` e fatiamento semântico (`RecursiveCharacterTextSplitter`).
+- **Banco Vetorial Local:** Construção de um repositório RAG escalável e privado utilizando o `ChromaDB`.
+- **Inteligência Artificial Generativa:** Integração oficial com a API do Google utilizando modelos da família **Gemini**.
+- **Agentes Autônomos (LangGraph):** Fluxo de roteamento inteligente (Flow Engineering) e RAG contínuo que avalia o próprio contexto antes de responder, garantindo segurança contra alucinações.
+- **Interface Premium UI/UX:** Front-end elegante em `Streamlit`, com sistema de histórico de chat, avatares dinâmicos, painel lateral de status e citações bibliográficas integradas na resposta.
+
 
 ## 📦 Entregáveis da Equipe (Prazo: 29/05/2026)
 Todos os arquivos devem ser gerados neste repositório para facilitar o envio:
