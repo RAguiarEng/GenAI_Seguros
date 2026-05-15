@@ -1,2 +1,8 @@
-# Arquivos de consulta
-ref_seguradora/
+.env
+.venv/
+venv/
+__pycache__/
+data/vector_store/
+dist
+build
+.pytest_cache
