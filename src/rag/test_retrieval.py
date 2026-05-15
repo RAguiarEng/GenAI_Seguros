@@ -33,6 +33,7 @@ def test_retrieval():
         """
     )
 
+    # Combina o prompt com o LLM para criar a cadeia de avaliação
     chain_judge = prompt_judge | llm_judge
 
     correct_answers = 0
