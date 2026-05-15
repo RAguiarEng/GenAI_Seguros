@@ -1,0 +1,8 @@
+# Configurações do Google Gemini
+GOOGLE_API_KEY="sua-chave-api-aqui"
+LLM_MODEL="gemini-2.5-flash"
+EMBEDDING_MODEL="models/gemini-embedding-001"
+
+# Configuração do Provedor ('google' para Gemini, 'local' para Ollama)
+LLM_PROVIDER=local
+OLLAMA_MODEL="gemma:2b"
