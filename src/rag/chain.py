@@ -2,7 +2,7 @@ import re
 import pathlib
 from typing import List, Dict
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI, HarmBlockThreshold, HarmCategory
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -24,7 +24,13 @@ def get_llm():
         return ChatGoogleGenerativeAI(
             model=LLM_MODEL,
             temperature=0.0,
-            api_key=GOOGLE_API_KEY
+            api_key=GOOGLE_API_KEY,
+            safety_settings={ # Filtragem
+                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE, # Bloqueia conteudo perigoso     
+                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE, # Bloqueia assedios e ameacas
+                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE, # Bloqueia conteudo sexual
+                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE # Bloqueia discurso de odio
+            }
         )
     else:
         raise ValueError(f"Provedor de LLM desconhecido: {LLM_PROVIDER}")

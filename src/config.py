@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Chaves e APIs
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 # Define o provedor de LLM com base na variável de ambiente, padrão para 'google'
 LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "google").lower()

@@ -1,6 +1,6 @@
 .env
-.venv/
-venv/
+.genaiseg/
+genaiseg/
 __pycache__/
 data/vector_store/
 dist

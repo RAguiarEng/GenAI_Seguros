@@ -11,3 +11,6 @@ chromadb
 python-dotenv
 pymupdf
 pypdf
+fastapi 
+uvicorn
+pydantic

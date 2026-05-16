@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Seguros - Proteção Integral para Você</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==============================================================
+           VARIÁVEIS CSS E RESET (MOBILE-FIRST)
+           ============================================================== */
+        :root {
+            /* Paleta baseada em Azul Claro */
+            --primary: #00AEEF; 
+            --primary-hover: #008fcc;
+            --secondary-dark: #003366; 
+            --bg-light: #F4F7F9;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --white: #FFFFFF;
+            --border-radius: 8px;
+            --chat-bg: #Eef2f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==============================================================
+           CABEÇALHO / NAVBAR
+           ============================================================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        /* Menu Mobile - Oculto por padrão, ativado via JS */
+        .nav-links {
+            display: none; 
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-bottom: 15px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-portal {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            text-align: center;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .btn-portal:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .menu-toggle {
+            font-size: 1.5rem;
+            color: var(--secondary-dark);
+            cursor: pointer;
+            display: block;
+        }
+
+        /* ==============================================================
+           HERO SECTION
+           ============================================================== */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 80px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn-hero {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.3s, background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+        }
+
+        /* ==============================================================
+           PRODUTOS E SERVIÇOS
+           ============================================================== */
+        .products {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--secondary-dark);
+            margin-bottom: 40px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-dark);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==============================================================
+           SEÇÃO DIGITAL / TELEMEDICINA
+           ============================================================== */
+        .digital-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .digital-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .digital-text h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-dark);
+            margin-bottom: 20px;
+        }
+
+        .digital-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .digital-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ==============================================================
+           FOOTER
+           ============================================================== */
+        footer {
+            background-color: var(--secondary-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* ==============================================================
+           WIDGET CHATBOT (UI AUTO-ATENDIMENTO)
+           ============================================================== */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .chat-btn {
+            width: 65px;
+            height: 65px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 174, 239, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-hover);
+        }
+
+        .chat-window {
+            display: none; 
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 480px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .chat-window.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .chat-header-info i {
+            font-size: 1.2rem;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .close-chat:hover {
+            color: #e0e0e0;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            background-color: var(--chat-bg);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            text-align: justify;
+        }
+
+        .msg-bot {
+            background-color: var(--white);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: justify;
+            hyphens: auto; 
+            -webkit-hyphens: auto;
+        }
+
+        .msg-bot p {
+            margin-bottom: 8px;
+        }
+        .msg-bot p:last-child {
+            margin-bottom: 0;
+        }
+        .msg-bot ul, .msg-bot ol {
+            margin-left: 20px; /* Dá o recuo na lista */
+            margin-bottom: 8px;
+        }
+        .msg-bot li {
+            margin-bottom: 4px;
+        }
+
+        .msg-user {
+            background-color: var(--primary);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .typing-indicator {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            font-style: italic;
+            display: none;
+            margin-bottom: 5px;
+            align-self: flex-start;
+        }
+
+        .chat-footer {
+            padding: 12px;
+            background-color: var(--white);
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border 0.3s;
+        }
+
+        .chat-footer input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-footer button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .chat-footer button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* ==============================================================
+           MEDIA QUERIES (DESKTOP)
+           ============================================================== */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .nav-links li {
+                margin-bottom: 0;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 0;
+                text-align: left;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                max-width: 600px;
+            }
+
+            .hero p {
+                max-width: 500px;
+            }
+
+            .grid-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .digital-container {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .digital-text, .digital-image {
+                flex: 1;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .chat-window {
+                width: 360px;
+                height: 520px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-shield-halved"></i> GenAI Seguros
+            </a>
+            
+            <!-- Menu Hamburguer para Mobile -->
+            <i class="fa-solid fa-bars menu-toggle" id="mobile-menu"></i>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#produtos">Para Você</a></li>
+                <li><a href="#produtos">Para Empresas</a></li>
+                <li><a href="#digital">Rede Referenciada</a></li>
+                <li><a href="#digital">Aplicativo</a></li>
+                <li><a href="#" class="btn-portal"><i class="fa-regular fa-user"></i> Portal do Cliente</a></li>
+            </ul>
+        </div>
+        <!-- Biblioteca para converter Markdown da IA em HTML -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </header>
+
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section class="hero">
+        <div class="container">
+            <h1>Sua saúde e proteção com <span>inteligência</span> em primeiro lugar.</h1>
+            <p>Conheça os planos da GenAI Seguros. Inovação, tecnologia e cuidado integral para você, sua família ou sua empresa.</p>
+            <button class="btn-hero">Faça uma Cotação</button>
+        </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos" class="products">
+        <div class="container">
+            <h2 class="section-title">O que podemos fazer por você hoje?</h2>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h3>Seguro Saúde</h3>
+                    <p>Ampla rede médica, hospitais de excelência e telemedicina 24h na palma da sua mão.</p>
+                    <a href="#">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="card">
+                    <i class="fa-solid fa-tooth"></i>
+                    <h3>Seguro Odonto</h3>
+                    <p>Milhares de dentistas referenciados, cobertura para próteses e ortodontia.</p>
+                    <a href="#">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="card">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h3>Seguro de Vida</h3>
+                    <p>Proteção financeira e assistência completa para garantir o futuro de quem você ama.</p>
+                    <a href="#">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="card">
+                    <i class="fa-solid fa-car-shield"></i>
+                    <h3>Auto e Residência</h3>
+                    <p>Assistência 24 horas, guincho, chaveiro e proteção contra imprevistos diários.</p>
+                    <a href="#">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DIGITAL -->
+    <section id="digital" class="digital-section">
+        <div class="container digital-container">
+            <div class="digital-text">
+                <h2>GenAI Saúde na Tela</h2>
+                <p>Nós transformamos a maneira como você cuida da sua saúde. Com o aplicativo GenAI Seguros, você realiza consultas médicas por vídeo sem sair de casa, agenda exames e acompanha seus reembolsos com total transparência.</p>
+                <p><strong>Mais de 50 especialidades médicas disponíveis na palma da sua mão, impulsionadas pela nossa inteligência de triagem.</strong></p>
+                <button class="btn-hero" style="margin-top: 15px;">Baixar o App</button>
+            </div>
+            <div class="digital-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Médico atendendo por telemedicina">
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Sobre a GenAI Seguros</a>
+                <a href="#">Canal de Denúncias</a>
+                <a href="#">Sustentabilidade</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Ouvidoria</a>
+            </div>
+            <p class="copyright">&copy; 2024 GenAI Seguros. Todos os direitos reservados. Feito com tecnologia inteligente.</p>
+        </div>
+    </footer>
+
+    <!-- WIDGET CHATBOT -->
+    <div class="chat-widget">
+        <!-- Janela do Chat (Invisível por padrão) -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fa-solid fa-robot"></i> Assistente GenAI
+                </div>
+                <i class="fa-solid fa-xmark close-chat" id="close-chat"></i>
+            </div>
+            
+            <div class="chat-body" id="chat-body">
+                <div class="message msg-bot">
+                Olá! Sou o assistente de IA da seguradora. Estou aqui para tirar suas dúvidas com base nos Manuais e Apólices oficiais.
+                </div>
+                <span class="typing-indicator" id="typing-indicator">O assistente está digitando...</span>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off">
+                <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Ícone Flutuante -->
+        <div class="chat-btn" id="chat-toggle">
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==========================================
+        // LÓGICA DO MENU MOBILE
+        // ==========================================
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // ==========================================
+        // LÓGICA DO CHATBOT (UI)
+        // ==========================================
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatBody = document.getElementById('chat-body');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        // Abrir/Fechar Chat
+        chatToggle.addEventListener('click', () => {
+            chatWindow.classList.add('active');
+            chatToggle.style.display = 'none'; // Esconde o botão
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+            chatToggle.style.display = 'flex'; // Mostra o botão novamente
+        });
+
+        // Adicionar Mensagem na tela
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message');
+            msgDiv.classList.add(sender === 'user' ? 'msg-user' : 'msg-bot');
+            if (sender === 'bot') {
+                // O marked.parse() traduz qualquer coisa da IA (listas, negritos) para HTML perfeito
+                msgDiv.innerHTML = marked.parse(text);
+            } else {
+                msgDiv.textContent = text;
+            }
+            
+            // Insere antes do indicador de digitação
+            chatBody.insertBefore(msgDiv, typingIndicator);
+            scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // ==========================================
+        // GESTÃO DE INATIVIDADE (TIMEOUT)
+        // ==========================================
+        let isSessionActive = true; 
+        let inactivityTimer;
+        const INACTIVITY_TIME = 3 * 60 * 1000; // 3 minutos sem atividade do usuario
+
+        // Função que reinicia o relógio
+        function resetInactivityTimer() {
+            // Se a sessão já foi encerrada, impede que o relógio seja ligado novamente
+            if (!isSessionActive) return; 
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(triggerInactivity, INACTIVITY_TIME);
+        }
+
+        // Função ativada quando o tempo acaba
+        async function triggerInactivity() {
+            // Só dispara se a janela do chat estiver aberta (evita incomodar se estiver fechado)
+            if (!chatWindow.classList.contains('active') || !isSessionActive) return;
+
+            typingIndicator.style.display = 'block';
+            scrollToBottom();
+
+            try {
+                // Envia o gatilho invisível para a API
+                const botResponse = await getLangChainResponse("__TIMEOUT_PING__");
+                typingIndicator.style.display = 'none';
+                appendMessage(botResponse, 'bot');                
+                // Limpa o timer para não ficar mandando o aviso várias vezes em loop
+                clearTimeout(inactivityTimer);
+            } catch (error) {
+                typingIndicator.style.display = 'none';
+            }
+        }
+
+        // Função para checar se o bot mandou a mensagem de despedida
+        function checkSessionClosure(text) {
+            const lowerText = text.toLowerCase();            
+            // Busca palavras-chave baseadas no System Prompt que configuramos no Python
+            if (lowerText.includes("encerrada") || lowerText.includes("encerrando") || lowerText.includes("encerrado")) {
+                isSessionActive = false; // Muda o estado para inativo
+                clearTimeout(inactivityTimer); // Mata o cronômetro zumbi
+                
+                // Bloqueia a interface visualmente no caso do usuário não desejar mais interagir com o chat
+                chatInput.disabled = true;
+                chatInput.placeholder = "Sessão encerrada. Atualize a página.";
+                sendBtn.disabled = true;
+                sendBtn.style.backgroundColor = "#ccc";
+                sendBtn.style.cursor = "not-allowed";
+            }
+        }
+
+        // ==========================================
+        // LÓGICA DE ENVIO DO USUÁRIO
+        // ==========================================
+        async function handleSendMessage() {
+            // Trava de segurança: impede envios se a sessão já acabou
+            if (!isSessionActive) return; 
+
+            const userText = chatInput.value.trim();
+            if (userText === "") return;
+
+            // Ao interagir, limpa e reinicia o relógio de inatividade
+            resetInactivityTimer();
+
+            // Renderiza o que o usuário enviou
+            appendMessage(userText, 'user');
+            chatInput.value = "";
+            
+            // Exibe indicador visual de que a IA está "pensando"
+            typingIndicator.style.display = 'block';
+            scrollToBottom();
+
+            // Chamada de integração para LangChain
+            try {
+                const botResponse = await getLangChainResponse(userText);
+                typingIndicator.style.display = 'none';
+                appendMessage(botResponse, 'bot');
+                checkSessionClosure(botResponse);                
+                resetInactivityTimer();// Reinicia o relógio novamente após o bot responder
+            } catch (error) {
+                typingIndicator.style.display = 'none';
+                appendMessage("Desculpe, nossos servidores estão passando por uma instabilidade. Tente novamente mais tarde.", 'bot');
+            }
+        }        
+        resetInactivityTimer();// Inicia o timer na primeira vez que o usuário abrir a página
+        sendBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSendMessage();
+        });
+
+        // ==========================================
+        // INTEGRAÇÃO COM LANGCHAIN (REGRAS ATENDIDAS)
+        // ==========================================       
+        async function getLangChainResponse(message) {                                            
+            const LANGCHAIN_API_URL = "http://localhost:8000/api/chat/langchain"; // Rota para API            
+            const response = await fetch(LANGCHAIN_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',                    
+                },
+                body: JSON.stringify({ 
+                    question: message, 
+                    session_id: "user_session_123" // Parâmetro para histórico de chat (Memory)
+                })
+            });
+            if (!response.ok) {
+                throw new Error('Falha na resposta da rede.');
+            }
+            const data = await response.json(); 
+            return data.answer;             
+        }        
+    </script>
+</body>
+</html>
